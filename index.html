@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="MAGNATUM - Consultoría Estratégica & Tecnología Cuántica. Arquitectura de soluciones de nueva generación.">
+    <meta name="theme-color" content="#050816">
+    <title>MAGNATUM | Quantum Architecture</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="quantum.css">
+</head>
+
+<body>
+    <!-- Quantum Particle Field -->
+    <canvas id="quantumField"></canvas>
+
+    <!-- Parallax Layers -->
+    <div class="parallax-layer parallax-stars" id="parallaxStars"></div>
+    <div class="parallax-layer parallax-nebula" id="parallaxNebula"></div>
+    <div class="parallax-layer parallax-grid" id="parallaxGrid">
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <pattern id="quantumGrid" width="60" height="60" patternUnits="userSpaceOnUse">
+                    <path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(99,102,241,0.07)" stroke-width="0.5" />
+                </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#quantumGrid)" />
+        </svg>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="q-nav" id="qNav">
+        <div class="q-nav-inner">
+            <a href="#" class="q-logo">
+                <img src="assets/logo-quantum.png" alt="MAGNATUM" class="q-logo-img">
+                <div class="q-logo-glow"></div>
+            </a>
+            <div class="q-nav-links" id="qNavLinks">
+                <a href="#ecosistema" class="q-nav-link" data-quantum="link">
+                    <span class="link-text">ECOSISTEMA</span>
+                    <span class="link-quantum-line"></span>
+                </a>
+                <a href="#soluciones" class="q-nav-link" data-quantum="link">
+                    <span class="link-text">SOLUCIONES</span>
+                    <span class="link-quantum-line"></span>
+                </a>
+                <a href="#vision" class="q-nav-link" data-quantum="link">
+                    <span class="link-text">VISIÓN</span>
+                    <span class="link-quantum-line"></span>
+                </a>
+                <a href="#metricas" class="q-nav-link" data-quantum="link">
+                    <span class="link-text">MÉTRICAS</span>
+                    <span class="link-quantum-line"></span>
+                </a>
+            </div>
+            <a href="#acceso" class="q-nav-cta">
+                <span>ACCESO CUÁNTICO</span>
+                <i data-lucide="zap"></i>
+            </a>
+            <button class="q-nav-toggle" id="qNavToggle" aria-label="Menu">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Quantum Status Bar -->
+    <div class="q-status" id="qStatus">
+        <div class="q-status-inner">
+            <span class="q-status-dot"></span>
+            <span class="q-status-label">QUANTUM STATE:</span>
+            <span class="q-status-val" id="qState">SUPERPOSITION</span>
+            <span class="q-status-sep">⟩</span>
+            <span class="q-status-label">COHERENCIA:</span>
+            <span class="q-status-val" id="qCoherence">99.97%</span>
+            <span class="q-status-sep">⟩</span>
+            <span class="q-status-label">ENTRELAZAMIENTO:</span>
+            <span class="q-status-val" id="qEntangle">ACTIVO</span>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="q-hero" id="hero">
+        <div class="q-hero-content" data-parallax="0.3">
+            <div class="q-hero-text">
+                <div class="q-hero-badge">
+                    <span class="badge-pulse"></span>
+                    <span>QUANTUM ARCHITECTURE v2.0</span>
+                </div>
+                <h1 class="q-hero-title quantum-observe" data-quantum="collapse">
+                    <span class="title-line">CONSULTORÍA</span>
+                    <span class="title-line q-accent">ESTRATÉGICA</span>
+                    <span class="title-line q-dim">& TECNOLOGÍA</span>
+                </h1>
+                <p class="q-hero-desc quantum-observe">
+                    Trascendemos la asesoría tradicional. Fusionamos ingeniería financiera de élite
+                    con desarrollo tecnológico propietario para construir la infraestructura del éxito corporativo.
+                </p>
+                <div class="q-hero-actions">
+                    <a href="#ecosistema" class="q-btn q-btn-primary">
+                        <span>Explorar Ecosistema</span>
+                        <i data-lucide="atom"></i>
+                    </a>
+                    <a href="#acceso" class="q-btn q-btn-ghost">
+                        <span>Solicitar Acceso</span>
+                        <i data-lucide="lock"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="q-hero-visual">
+                <div class="q-orb-container">
+                    <div class="q-orb">
+                        <div class="q-orb-ring ring-1"></div>
+                        <div class="q-orb-ring ring-2"></div>
+                        <div class="q-orb-ring ring-3"></div>
+                        <div class="q-orb-core">
+                            <img src="assets/logo-quantum.png" alt="MAGNATUM Core">
+                        </div>
+                    </div>
+                    <div class="q-orb-label">
+                        <span class="orb-id">QBit_MG_001</span>
+                        <span class="orb-state">|ψ⟩ = α|0⟩ + β|1⟩</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="q-hero-scroll">
+            <span>Colapsar función de onda</span>
+            <div class="scroll-wave">
+                <i data-lucide="chevrons-down"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quantum Metrics -->
+    <section class="q-metrics" id="metricas">
+        <div class="q-metrics-grid">
+            <div class="q-metric-card quantum-observe" data-quantum="entangle" data-delay="0">
+                <div class="q-metric-icon"><i data-lucide="trending-up"></i></div>
+                <div class="q-metric-body">
+                    <span class="q-metric-val" data-count="2.4">$0</span>
+                    <span class="q-metric-unit">B</span>
+                    <span class="q-metric-label">Assets Under Advisory</span>
+                </div>
+                <span class="q-metric-delta positive">+12.4%</span>
+            </div>
+            <div class="q-metric-card quantum-observe" data-quantum="entangle" data-delay="100">
+                <div class="q-metric-icon"><i data-lucide="building-2"></i></div>
+                <div class="q-metric-body">
+                    <span class="q-metric-val" data-count="147">0</span>
+                    <span class="q-metric-unit"></span>
+                    <span class="q-metric-label">Clientes Corporativos</span>
+                </div>
+                <span class="q-metric-delta positive">+8</span>
+            </div>
+            <div class="q-metric-card quantum-observe" data-quantum="entangle" data-delay="200">
+                <div class="q-metric-icon"><i data-lucide="git-branch"></i></div>
+                <div class="q-metric-body">
+                    <span class="q-metric-val" data-count="89">0</span>
+                    <span class="q-metric-unit"></span>
+                    <span class="q-metric-label">Proyectos Activos</span>
+                </div>
+                <span class="q-metric-delta positive">+15</span>
+            </div>
+            <div class="q-metric-card quantum-observe" data-quantum="entangle" data-delay="300">
+                <div class="q-metric-icon"><i data-lucide="cpu"></i></div>
+                <div class="q-metric-body">
+                    <span class="q-metric-val" data-count="99.99">0</span>
+                    <span class="q-metric-unit">%</span>
+                    <span class="q-metric-label">Platform Uptime</span>
+                </div>
+                <span class="q-metric-badge">⟨ LIVE ⟩</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ecosistema Section -->
+    <section class="q-section q-ecosistema" id="ecosistema">
+        <div class="q-container">
+            <div class="q-section-header quantum-observe" data-quantum="collapse">
+                <span class="q-tag">ECOSISTEMA MAGNATUM</span>
+                <h2 class="q-section-title">Infraestructura de<br><span class="q-accent">Excelencia Cuántica</span></h2>
+                <p class="q-section-desc">Un universo integrado de capacidades diseñado para transformar la complejidad
+                    corporativa en ventaja competitiva cuántica.</p>
+            </div>
+            <div class="q-ecosystem-viz">
+                <canvas id="ecosystemCanvas"></canvas>
+                <div class="q-eco-legend">
+                    <div class="q-legend-item"><span class="q-legend-dot"
+                            style="background:#6366f1"></span><span>Consultoría</span></div>
+                    <div class="q-legend-item"><span class="q-legend-dot"
+                            style="background:#06b6d4"></span><span>Tecnología</span></div>
+                    <div class="q-legend-item"><span class="q-legend-dot"
+                            style="background:#a78bfa"></span><span>Finanzas</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Soluciones Section -->
+    <section class="q-section q-soluciones" id="soluciones">
+        <div class="q-container">
+            <div class="q-section-header quantum-observe" data-quantum="collapse">
+                <span class="q-tag">SOLUCIONES CUÁNTICAS</span>
+                <h2 class="q-section-title">Vertical de<br><span class="q-accent">Servicios</span></h2>
+            </div>
+            <div class="q-solutions-grid">
+                <!-- Card 1 -->
+                <div class="q-sol-card quantum-observe" data-quantum="hologram" data-delay="0">
+                    <div class="q-sol-glow"></div>
+                    <div class="q-sol-content">
+                        <div class="q-sol-icon"><i data-lucide="line-chart"></i></div>
+                        <h3>Consultoría Estratégica</h3>
+                        <p>Ingeniería financiera avanzada, M&A advisory, reestructuración corporativa y optimización de
+                            capital.</p>
+                        <div class="q-sol-chart"><canvas class="miniChart" data-type="consulting"></canvas></div>
+                        <ul class="q-sol-features">
+                            <li><i data-lucide="check"></i> Due Diligence Integral</li>
+                            <li><i data-lucide="check"></i> Valuación Empresarial</li>
+                            <li><i data-lucide="check"></i> Estrategia de Crecimiento</li>
+                            <li><i data-lucide="check"></i> Risk Management</li>
+                        </ul>
+                        <a href="#acceso" class="q-sol-cta"><span>Explorar</span><i data-lucide="arrow-right"></i></a>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="q-sol-card quantum-observe" data-quantum="hologram" data-delay="150">
+                    <div class="q-sol-glow"></div>
+                    <div class="q-sol-content">
+                        <div class="q-sol-icon tech"><i data-lucide="code-2"></i></div>
+                        <h3>Desarrollo Tecnológico</h3>
+                        <p>Soluciones de software propietario, plataformas fintech y arquitectura de sistemas
+                            empresariales.</p>
+                        <div class="q-terminal">
+                            <div class="q-term-header">
+                                <span class="q-term-dot" style="background:#ef4444"></span>
+                                <span class="q-term-dot" style="background:#f59e0b"></span>
+                                <span class="q-term-dot" style="background:#22c55e"></span>
+                                <span class="q-term-title">quantum_core.py</span>
+                            </div>
+                            <div class="q-term-body">
+                                <pre><code id="quantumCode"></code></pre><span class="q-cursor">|</span>
+                            </div>
+                        </div>
+                        <ul class="q-sol-features">
+                            <li><i data-lucide="check"></i> Plataformas Fintech</li>
+                            <li><i data-lucide="check"></i> APIs Empresariales</li>
+                            <li><i data-lucide="check"></i> Machine Learning</li>
+                            <li><i data-lucide="check"></i> Cloud Architecture</li>
+                        </ul>
+                        <a href="#acceso" class="q-sol-cta"><span>Explorar</span><i data-lucide="arrow-right"></i></a>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="q-sol-card quantum-observe" data-quantum="hologram" data-delay="300">
+                    <div class="q-sol-glow"></div>
+                    <div class="q-sol-content">
+                        <div class="q-sol-icon integ"><i data-lucide="layers"></i></div>
+                        <h3>Integración Empresarial</h3>
+                        <p>Transformación digital end-to-end, fusión de operaciones y optimización de procesos
+                            cuánticos.</p>
+                        <div class="q-flow">
+                            <div class="q-flow-node"><i data-lucide="database"></i><span>Data</span></div>
+                            <div class="q-flow-line"></div>
+                            <div class="q-flow-node active"><i data-lucide="cpu"></i><span>Process</span></div>
+                            <div class="q-flow-line"></div>
+                            <div class="q-flow-node"><i data-lucide="bar-chart-3"></i><span>Insight</span></div>
+                        </div>
+                        <ul class="q-sol-features">
+                            <li><i data-lucide="check"></i> Digital Transformation</li>
+                            <li><i data-lucide="check"></i> Process Automation</li>
+                            <li><i data-lucide="check"></i> System Integration</li>
+                            <li><i data-lucide="check"></i> Change Management</li>
+                        </ul>
+                        <a href="#acceso" class="q-sol-cta"><span>Explorar</span><i data-lucide="arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section class="q-section q-vision" id="vision">
+        <div class="q-container">
+            <div class="q-vision-grid">
+                <div class="q-vision-text quantum-observe" data-quantum="collapse">
+                    <span class="q-tag">NUESTRA VISIÓN</span>
+                    <h2 class="q-section-title">Redefiniendo el<br><span class="q-accent">Futuro Corporativo</span></h2>
+                    <p class="q-vision-desc">En MAGNATUM, no seguimos tendencias — las creamos. Nuestra visión es
+                        construir el puente entre la estrategia tradicional y la innovación tecnológica cuántica,
+                        empoderando a las organizaciones para trascender sus límites.</p>
+                    <div class="q-vision-stats">
+                        <div class="q-vstat"><span class="q-vstat-val">15+</span><span class="q-vstat-label">Años de
+                                Excelencia</span></div>
+                        <div class="q-vstat"><span class="q-vstat-val">$12B</span><span class="q-vstat-label">Valor
+                                Generado</span></div>
+                        <div class="q-vstat"><span class="q-vstat-val">98%</span><span class="q-vstat-label">Retención
+                                Clientes</span></div>
+                    </div>
+                </div>
+                <div class="q-vision-card quantum-observe" data-quantum="hologram">
+                    <div class="q-vision-card-bg"></div>
+                    <blockquote>"La excelencia no es un acto, sino un hábito. En MAGNATUM, es nuestra esencia cuántica."
+                    </blockquote>
+                    <cite>— Fundadores, MAGNATUM</cite>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Access Section -->
+    <section class="q-section q-acceso" id="acceso">
+        <div class="q-container">
+            <div class="q-acceso-grid">
+                <div class="q-acceso-info quantum-observe" data-quantum="collapse">
+                    <span class="q-tag">ACCESO CUÁNTICO</span>
+                    <h2 class="q-section-title">Solicitar<br><span class="q-accent">Acceso Cliente</span></h2>
+                    <p class="q-acceso-desc">El acceso a MAGNATUM es por invitación. Complete el formulario para iniciar
+                        el proceso de evaluación cuántica.</p>
+                    <div class="q-acceso-features">
+                        <div class="q-acceso-feat"><i data-lucide="shield"></i>
+                            <div>
+                                <h4>Confidencialidad Total</h4>
+                                <p>NDA ejecutivo incluido</p>
+                            </div>
+                        </div>
+                        <div class="q-acceso-feat"><i data-lucide="clock"></i>
+                            <div>
+                                <h4>Respuesta en 24h</h4>
+                                <p>Evaluación prioritaria</p>
+                            </div>
+                        </div>
+                        <div class="q-acceso-feat"><i data-lucide="users"></i>
+                            <div>
+                                <h4>Consultor Dedicado</h4>
+                                <p>Atención personalizada</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="q-form-container quantum-observe" data-quantum="hologram">
+                    <form class="q-form" id="quantumForm">
+                        <div class="q-form-group">
+                            <label for="qCompany">Empresa</label>
+                            <input type="text" id="qCompany" required placeholder="Nombre de la empresa">
+                        </div>
+                        <div class="q-form-row">
+                            <div class="q-form-group"><label for="qName">Nombre</label><input type="text" id="qName"
+                                    required placeholder="Su nombre"></div>
+                            <div class="q-form-group"><label for="qPos">Cargo</label><input type="text" id="qPos"
+                                    required placeholder="Su cargo"></div>
+                        </div>
+                        <div class="q-form-group">
+                            <label for="qEmail">Email Corporativo</label>
+                            <input type="email" id="qEmail" required placeholder="email@empresa.com">
+                        </div>
+                        <div class="q-form-group">
+                            <label for="qInterest">Área de Interés</label>
+                            <select id="qInterest" required>
+                                <option value="">Seleccione una opción</option>
+                                <option value="consulting">Consultoría Estratégica</option>
+                                <option value="technology">Desarrollo Tecnológico</option>
+                                <option value="integration">Integración Empresarial</option>
+                                <option value="full">Solución Integral Cuántica</option>
+                            </select>
+                        </div>
+                        <div class="q-form-group">
+                            <label for="qMsg">Mensaje</label>
+                            <textarea id="qMsg" rows="4" placeholder="Describa sus necesidades..."></textarea>
+                        </div>
+                        <button type="submit" class="q-btn q-btn-primary q-btn-full">
+                            <span>Iniciar Entrelazamiento</span><i data-lucide="send"></i>
+                        </button>
+                        <p class="q-form-disclaimer"><i data-lucide="lock"></i> Datos protegidos por cifrado cuántico.
+                        </p>
+                    </form>
+                    <div class="q-form-success" id="qFormSuccess">
+                        <i data-lucide="check-circle"></i>
+                        <h3>Solicitud Cuántica Recibida</h3>
+                        <p>Nuestro equipo revisará su solicitud y se pondrá en contacto en las próximas 24 horas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="q-footer">
+        <div class="q-footer-inner">
+            <div class="q-footer-main">
+                <div class="q-footer-brand">
+                    <img src="assets/logo-quantum.png" alt="MAGNATUM" class="q-footer-logo">
+                    <p>Powering Quantum Futures</p>
+                </div>
+                <div class="q-footer-links">
+                    <div class="q-footer-col">
+                        <h4>Empresa</h4><a href="#vision">Visión</a><a href="#ecosistema">Ecosistema</a><a
+                            href="#">Carreras</a>
+                    </div>
+                    <div class="q-footer-col">
+                        <h4>Servicios</h4><a href="#soluciones">Consultoría</a><a href="#soluciones">Tecnología</a><a
+                            href="#soluciones">Integración</a>
+                    </div>
+                    <div class="q-footer-col">
+                        <h4>Legal</h4><a href="#">Privacidad</a><a href="#">Términos</a><a href="#">Compliance</a>
+                    </div>
+                </div>
+            </div>
+            <div class="q-footer-bottom">
+                <p>&copy; 2026 MAGNATUM. Quantum Architecture Reserved.</p>
+                <div class="q-footer-social">
+                    <a href="#" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+                    <a href="#" aria-label="Twitter"><i data-lucide="twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="quantum.js"></script>
+</body>
+
+</html>
