@@ -391,89 +391,16 @@
 
     document.querySelectorAll('.q-metric-card').forEach(card => counterObserver.observe(card));
 
-    // ── Form Submission — Formspree to esteban.barrera@magnatum.cl ──
+    // ── Form Submission ─────────────────────────────────
     const form = document.getElementById('quantumForm');
     const formSuccess = document.getElementById('qFormSuccess');
-    const submitBtn = document.getElementById('qSubmitBtn');
-
     if (form) {
-        // Sync reply-to field with email input
-        const emailInput = document.getElementById('qEmail');
-        const replyToField = document.getElementById('replyToField');
-        if (emailInput && replyToField) {
-            emailInput.addEventListener('input', () => {
-                replyToField.value = emailInput.value;
-            });
-        }
-
-        form.addEventListener('submit', async (e) => {
+        form.addEventListener('submit', e => {
             e.preventDefault();
-
-            // UI: loading state
-            const btnText = submitBtn.querySelector('.btn-text');
-            const btnLoading = submitBtn.querySelector('.btn-loading');
-            if (btnText) btnText.style.display = 'none';
-            if (btnLoading) btnLoading.style.display = 'inline';
-            submitBtn.disabled = true;
-            submitBtn.style.opacity = '0.7';
-
-            try {
-                const formData = new FormData(form);
-
-                const response = await fetch(form.action, {
-                    method: 'POST',
-                    body: formData,
-                    headers: { 'Accept': 'application/json' }
-                });
-
-                if (response.ok) {
-                    form.style.display = 'none';
-                    formSuccess.classList.add('show');
-                    if (window.lucide) lucide.createIcons();
-                } else {
-                    // Fallback: open mailto
-                    const name = formData.get('nombre') || '';
-                    const empresa = formData.get('empresa') || '';
-                    const cargo = formData.get('cargo') || '';
-                    const email = formData.get('email') || '';
-                    const tel = formData.get('telefono') || '';
-                    const area = formData.get('area_interes') || '';
-                    const msg = formData.get('mensaje') || '';
-                    const subject = encodeURIComponent('[MAGNATUM Web] Solicitud de ' + name);
-                    const body = encodeURIComponent(
-                        'Nombre: ' + name + '\n' +
-                        'Empresa: ' + empresa + '\n' +
-                        'Cargo: ' + cargo + '\n' +
-                        'Email: ' + email + '\n' +
-                        'Teléfono: ' + tel + '\n' +
-                        'Área de interés: ' + area + '\n\n' +
-                        'Mensaje:\n' + msg
-                    );
-                    window.location.href = 'mailto:esteban.barrera@magnatum.cl?subject=' + subject + '&body=' + body;
-
-                    // Reset button
-                    if (btnText) btnText.style.display = 'inline';
-                    if (btnLoading) btnLoading.style.display = 'none';
-                    submitBtn.disabled = false;
-                    submitBtn.style.opacity = '1';
-                }
-            } catch (err) {
-                // Network error — fallback to mailto
-                const formData = new FormData(form);
-                const name = formData.get('nombre') || '';
-                const empresa = formData.get('empresa') || '';
-                const msg = formData.get('mensaje') || '';
-                const subject = encodeURIComponent('[MAGNATUM Web] Solicitud de ' + name);
-                const body = encodeURIComponent(
-                    'Empresa: ' + empresa + '\nNombre: ' + name + '\n\nMensaje:\n' + msg
-                );
-                window.location.href = 'mailto:esteban.barrera@magnatum.cl?subject=' + subject + '&body=' + body;
-
-                if (btnText) btnText.style.display = 'inline';
-                if (btnLoading) btnLoading.style.display = 'none';
-                submitBtn.disabled = false;
-                submitBtn.style.opacity = '1';
-            }
+            form.style.display = 'none';
+            formSuccess.classList.add('show');
+            // Re-create lucide icons for checkmark
+            if (window.lucide) lucide.createIcons();
         });
     }
 
